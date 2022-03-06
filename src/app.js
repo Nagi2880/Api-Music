@@ -8,6 +8,6 @@ app.set('port', process.env.PORT || 3000)
 app.get('/', (req, res) =>{
     res.json({message:'test'})
 })
-app.use('/api',Taskroutes)
+app.use('/api/tasks',Taskroutes)
 
 export default app
