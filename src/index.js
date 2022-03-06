@@ -1,6 +1,5 @@
-import express from 'express'
+ //Only start the app
+import app from './app'
 
-const app = express()
-app.set('port', 3000)
 app.listen(app.get('port'))
 console.log('server on port', app.get('port'))
