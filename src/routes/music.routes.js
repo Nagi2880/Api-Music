@@ -4,8 +4,9 @@ import Anime from '../models/Anime';
 
 const router = Router()
 
-router.get('/', (req, res) => {
-    res.send('Musics')
+router.get('/', async (req, res) => {
+    const Animes = await Anime.find()
+    res.json(Animes);
 })
 
 router.post('/', async (req,res) =>{
