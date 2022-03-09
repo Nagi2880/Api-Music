@@ -4,8 +4,12 @@ import * as SongsController from '../controllers/Songscontroller'
 
 const router = Router()
 
-router.get('/',SongsController.findAllSongs);
+router.get('/',SongsController.findAllAnimes);
 
-router.post('/', SongsController.createSong)
+router.post('/', SongsController.createAnime)
+
+router.get('/:id', SongsController.findOneAnime)
+
+router.delete('/:id', SongsController.deleteAnime)
 
 export default router;
