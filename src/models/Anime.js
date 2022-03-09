@@ -17,17 +17,17 @@ const animeSchema = new Schema({
     },
     songs:{
         albumname:{
-            type:String,
+            type:Array,
             required:true,
             trim:true
         },
         openingname:{
-            type:String,
+            type:Array,
             required:true,
             trim:true
         },
         author:{
-            type: String,
+            type: Array,
             required: true,
             trim: true
         }

@@ -12,4 +12,7 @@ router.get('/:id', SongsController.findOneAnime)
 
 router.delete('/:id', SongsController.deleteAnime)
 
+router.put('/:id', SongsController.updateAnime)
+
+
 export default router;

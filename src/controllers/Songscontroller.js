@@ -26,3 +26,8 @@ export const deleteAnime = async (req,res) =>{
         message: `${data.id} Anime was deleted`
     })
 }
+
+export const updateAnime = async (req,res) =>{
+   const updatedAnime = await Anime.findByIdAndUpdate(req.params.id, req.body)
+   res.json({ message: "Anime was updated or Song has been added succesfully"})
+}
