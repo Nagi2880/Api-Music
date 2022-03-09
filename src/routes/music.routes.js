@@ -1,24 +1,11 @@
 import {Router} from 'express';
-import Anime from '../models/Anime';
-
+// (* as call all const as Songcontroller instead one by one)
+import * as SongsController from '../controllers/Songscontroller'
 
 const router = Router()
 
-router.get('/', async (req, res) => {
-    const Animes = await Anime.find()
-    res.json(Animes);
-})
+router.get('/',SongsController.findAllSongs);
 
-router.post('/', async (req,res) =>{
-    const newAnime = new Anime({
-        animename: req.body.animename,
-        japanname: req.body.japanname,
-        director: req.body.director,
-        songs: req.body.songs,
-        })
-    const animeSaved = await newAnime.save();
-    res.json(animeSaved)
-
-})
+router.post('/', SongsController.createSong)
 
 export default router;
