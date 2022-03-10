@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-
+import mongoosePaginate from 'mongoose-paginate-v2'
 const animeSchema = new Schema({
     animename: {
         type: String,
@@ -36,5 +36,5 @@ const animeSchema = new Schema({
     versionKey: false,
     timestamps: true
 });
-
+animeSchema.plugin(mongoosePaginate);
 export default model("Anime",animeSchema)

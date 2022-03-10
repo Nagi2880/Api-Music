@@ -1,7 +1,10 @@
 import Anime from '../models/Anime';
-
+import {getPagination} from '../libs/getPagination'
 export const findAllAnimes = async (req, res) => {
-    const Animes = await Anime.find()
+    const {size, page} = req.query
+    const {limit, offset } = getPagination(page, size)
+
+    const Animes = await Anime.paginate({}, { offset, limit})
         res.json(Animes)}
 
 export const createAnime = async (req,res) =>{
