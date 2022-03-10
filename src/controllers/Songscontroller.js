@@ -1,10 +1,17 @@
 import Anime from '../models/Anime';
 import {getPagination} from '../libs/getPagination'
 export const findAllAnimes = async (req, res) => {
-    const {size, page} = req.query
+    
+    const {size, page, animename} = req.query
+
+    //Search in the route, a anime by your name
+    const condition = title ? {
+        animename: {$regrex: new RegExp(title), $options: "i"}
+    }:  {}
+
     const {limit, offset } = getPagination(page, size)
 
-    const Animes = await Anime.paginate({}, { offset, limit})
+    const Animes = await Anime.paginate({condition}, { offset, limit})
         res.json(Animes)}
 
 export const createAnime = async (req,res) =>{
